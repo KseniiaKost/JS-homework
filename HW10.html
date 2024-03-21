@@ -6,9 +6,22 @@
     <title>Document</title>
   </head>
   <body>
+    <!-- 1 -->
+    <!-- <form class="form" name="form1">
+      <input type="text" name="name" placeholder="name" />
+      <input type="text" name="surname" placeholder="surname" />
+      <input type="number" name="age" placeholder="age" />
+      <button class="button">submit</button>
+      <div class="result"></div>
+    </form> -->
+
+    <!-- 2 -->
+    <!-- <div>
+      <p class="output">5</p>
+    </div> -->
 
     <!-- 4-->
-    <style>
+    <!-- <style>
       li {
         list-style-type: none; /* Removes the default list-style (bullets or numbers) */
       }
@@ -16,168 +29,307 @@
     <button class="buttonPrev">Prev</button>
 
     <button class="buttonNext">Next</button>
-    <ul class="content"></ul>
-    
+    <ul class="content"></ul> -->
+
+    <!-- 5 -->
+    <!-- <div id="text">Text</div>
+    <button class="button">click</button> -->
+
+    <!-- 6 -->
+    <!-- <input type="number" class="input" />
+    <button class="button">check</button> -->
+
+    <!-- 7 -->
+
+    <!-- <input type="number" class="rows" />
+    <input type="number" class="cells" />
+    <input type="text" class="input" />
+    <button class="button">click</button> -->
+
+  
     <script>
- 
+      // 1. Стоврити форму з трьома полями для name,sruname,age та кнопкою. При натисканні на кнопку зчитати данні з
+      //  полів, та вивести об'єкт в документ. Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок
+      //   з вашим об'єктом
+
+      // const formElement = document.querySelector(".form");
+      // const buttonElement = document.querySelector(".button");
+      // const resultElement = document.querySelector(".result");
+
+      // function show(event) {
+      //   const nameValue = formElement.name.value;
+      //   const surnameValue = formElement.surname.value;
+      //   const ageValue = formElement.age.value;
+      //   event.preventDefault();
+      //   resultElement.innerHTML = `<p>name:${nameValue}</p> <p>surname:${surnameValue}</p> <p>age:${ageValue}</p>`;
+      // }
+
+      // buttonElement.addEventListener("click", show);
+
+      // ==========================
+
+      // 2. є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки
+      //  буде додавати до неї +1
+
+      // const outputElement = document.querySelector(".output");
+      // let count = localStorage.getItem("key") || outputElement.innerText;
+      // count++;
+      // outputElement.innerText = count;
+      // localStorage.setItem("key", count);
+
+      // ==========================
+      // 3. Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще,
+      //в масив sessions зберігається інформація про дату та час відвідування сторінки.
+      //Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію
+      //про відвідування сторінки index.html.
+      //Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію
+
+      //   const currentDate = new Date();
+      //   const dateInfo = {
+      //     date: currentDate.toLocaleDateString(),
+      //     time: currentDate.toLocaleTimeString(),
+      //   };
+
+      //   let sessionLog = JSON.parse(localStorage.getItem("sessions")) || [];
+      //   sessionLog.push(dateInfo);
+      //   localStorage.setItem("sessions", JSON.stringify(sessionLog));
+
       // =========================
       // 4. зробити масив на 100 об'єктів та дві кнопки prev next
       // при завантажені сторінки з'являються перші 10 об'єктів.
       // При натисканні next виводяться настпні 10 об'єктів
       // При натисканні prev виводяться попередні 10 об'єктів
-      const arr = [
-        { name: "John" },
-        { name: "Alice" },
-        { name: "Michael" },
-        { name: "Emma" },
-        { name: "James" },
-        { name: "Olivia" },
-        { name: "William" },
-        { name: "Sophia" },
-        { name: "Alexander" },
-        { name: "Isabella" },
-        { name: "Matthew" },
-        { name: "Charlotte" },
-        { name: "Ethan" },
-        { name: "Amelia" },
-        { name: "Daniel" },
-        { name: "Mia" },
-        { name: "Benjamin" },
-        { name: "Ella" },
-        { name: "Jacob" },
-        { name: "Emily" },
-        { name: "Andrew" },
-        { name: "Ava" },
-        { name: "David" },
-        { name: "Abigail" },
-        { name: "Joseph" },
-        { name: "Sofia" },
-        { name: "Logan" },
-        { name: "Scarlett" },
-        { name: "James" },
-        { name: "Lily" },
-        { name: "Henry" },
-        { name: "Grace" },
-        { name: "Michael" },
-        { name: "Madison" },
-        { name: "Jackson" },
-        { name: "Avery" },
-        { name: "Lucas" },
-        { name: "Chloe" },
-        { name: "Matthew" },
-        { name: "Evelyn" },
-        { name: "Ryan" },
-        { name: "Ella" },
-        { name: "Jack" },
-        { name: "Harper" },
-        { name: "Luke" },
-        { name: "Samantha" },
-        { name: "Nicholas" },
-        { name: "Addison" },
-        { name: "Gabriel" },
-        { name: "Natalie" },
-        { name: "John" },
-        { name: "Victoria" },
-        { name: "Christopher" },
-        { name: "Zoey" },
-        { name: "Joshua" },
-        { name: "Lillian" },
-        { name: "Aiden" },
-        { name: "Hannah" },
-        { name: "Emma" },
-        { name: "Brooklyn" },
-        { name: "Nathan" },
-        { name: "Zoe" },
-        { name: "Carter" },
-        { name: "Penelope" },
-        { name: "Isaac" },
-        { name: "Aria" },
-        { name: "Anthony" },
-        { name: "Mila" },
-        { name: "Christian" },
-        { name: "Leah" },
-        { name: "Samuel" },
-        { name: "Stella" },
-        { name: "Dylan" },
-        { name: "Audrey" },
-        { name: "Jonathan" },
-        { name: "Claire" },
-        { name: "Christopher" },
-        { name: "Skylar" },
-        { name: "Joseph" },
-        { name: "Nora" },
-        { name: "Isaiah" },
-        { name: "Savannah" },
-        { name: "Thomas" },
-        { name: "Sarah" },
-        { name: "Liam" },
-        { name: "Elizabeth" },
-        { name: "Owen" },
-        { name: "Eleanor" },
-        { name: "Connor" },
-        { name: "Hazel" },
-        { name: "Brayden" },
-        { name: "Aurora" },
-        { name: "Julian" },
-        { name: "Luna" },
-        { name: "Emma" },
-        { name: "Brooklyn" },
-        { name: "Nathan" },
-        { name: "Zoe" },
-        { name: "Isaac" },
-        { name: "Aria" },
-        { name: "Anthony" },
-      ];
-      const contentElement = document.querySelector(".content");
+      // const arr = [
+      //   { name: "John" },
+      //   { name: "Alice" },
+      //   { name: "Michael" },
+      //   { name: "Emma" },
+      //   { name: "James" },
+      //   { name: "Olivia" },
+      //   { name: "William" },
+      //   { name: "Sophia" },
+      //   { name: "Alexander" },
+      //   { name: "Isabella" },
+      //   { name: "Matthew" },
+      //   { name: "Charlotte" },
+      //   { name: "Ethan" },
+      //   { name: "Amelia" },
+      //   { name: "Daniel" },
+      //   { name: "Mia" },
+      //   { name: "Benjamin" },
+      //   { name: "Ella" },
+      //   { name: "Jacob" },
+      //   { name: "Emily" },
+      //   { name: "Andrew" },
+      //   { name: "Ava" },
+      //   { name: "David" },
+      //   { name: "Abigail" },
+      //   { name: "Joseph" },
+      //   { name: "Sofia" },
+      //   { name: "Logan" },
+      //   { name: "Scarlett" },
+      //   { name: "James" },
+      //   { name: "Lily" },
+      //   { name: "Henry" },
+      //   { name: "Grace" },
+      //   { name: "Michael" },
+      //   { name: "Madison" },
+      //   { name: "Jackson" },
+      //   { name: "Avery" },
+      //   { name: "Lucas" },
+      //   { name: "Chloe" },
+      //   { name: "Matthew" },
+      //   { name: "Evelyn" },
+      //   { name: "Ryan" },
+      //   { name: "Ella" },
+      //   { name: "Jack" },
+      //   { name: "Harper" },
+      //   { name: "Luke" },
+      //   { name: "Samantha" },
+      //   { name: "Nicholas" },
+      //   { name: "Addison" },
+      //   { name: "Gabriel" },
+      //   { name: "Natalie" },
+      //   { name: "John" },
+      //   { name: "Victoria" },
+      //   { name: "Christopher" },
+      //   { name: "Zoey" },
+      //   { name: "Joshua" },
+      //   { name: "Lillian" },
+      //   { name: "Aiden" },
+      //   { name: "Hannah" },
+      //   { name: "Emma" },
+      //   { name: "Brooklyn" },
+      //   { name: "Nathan" },
+      //   { name: "Zoe" },
+      //   { name: "Carter" },
+      //   { name: "Penelope" },
+      //   { name: "Isaac" },
+      //   { name: "Aria" },
+      //   { name: "Anthony" },
+      //   { name: "Mila" },
+      //   { name: "Christian" },
+      //   { name: "Leah" },
+      //   { name: "Samuel" },
+      //   { name: "Stella" },
+      //   { name: "Dylan" },
+      //   { name: "Audrey" },
+      //   { name: "Jonathan" },
+      //   { name: "Claire" },
+      //   { name: "Christopher" },
+      //   { name: "Skylar" },
+      //   { name: "Joseph" },
+      //   { name: "Nora" },
+      //   { name: "Isaiah" },
+      //   { name: "Savannah" },
+      //   { name: "Thomas" },
+      //   { name: "Sarah" },
+      //   { name: "Liam" },
+      //   { name: "Elizabeth" },
+      //   { name: "Owen" },
+      //   { name: "Eleanor" },
+      //   { name: "Connor" },
+      //   { name: "Hazel" },
+      //   { name: "Brayden" },
+      //   { name: "Aurora" },
+      //   { name: "Julian" },
+      //   { name: "Luna" },
+      //   { name: "Emma" },
+      //   { name: "Brooklyn" },
+      //   { name: "Nathan" },
+      //   { name: "Zoe" },
+      //   { name: "Isaac" },
+      //   { name: "Aria" },
+      //   { name: "Anthony" },
+      // ];
+      // const contentElement = document.querySelector(".content");
 
-      const buttonElementPrev = document.querySelector(".buttonPrev");
-      const buttonElementNext = document.querySelector(".buttonNext");
+      // const buttonElementPrev = document.querySelector(".buttonPrev");
+      // const buttonElementNext = document.querySelector(".buttonNext");
 
-      document.body.onload = function () {
-        let namesHTML = "";
-        for (let i = 0; i <= 9 && i < arr.length; i++) {
-          namesHTML += i + ". " + arr[i].name + "<br>";
-        }
-        contentElement.innerHTML = namesHTML;
-      };
+      // document.body.onload = function () {
+      //   let namesHTML = "";
+      //   for (let i = 0; i <= 9 && i < arr.length; i++) {
+      //     namesHTML += i + ". " + arr[i].name + "<br>";
+      //   }
+      //   contentElement.innerHTML = namesHTML;
+      // };
 
-      let start = 10;
-      let step = 10;
-      let limit = start + step;
+      // let start = 10;
+      // let step = 10;
+      // let limit = start + step;
 
-      buttonElementNext.onclick = function () {
-        contentElement.innerHTML = "";
-        if (limit > arr.length) {
-          start = 0;
-          limit = start + step;
-        }
-        for (let i = start; i < limit; i++) {
-          if (i <= arr.length) {
-            let li = document.createElement("li");
-            li.innerHTML = i + ". " + arr[i].name;
-            contentElement.appendChild(li);
-          }
-        }
+      // buttonElementNext.onclick = function () {
+      //   contentElement.innerHTML = "";
+      //   if (limit > arr.length) {
+      //     start = 0;
+      //     limit = start + step;
+      //   }
+      //   for (let i = start; i < limit; i++) {
+      //     if (i <= arr.length) {
+      //       let li = document.createElement("li");
+      //       li.innerHTML = i + ". " + arr[i].name;
+      //       contentElement.appendChild(li);
+      //     }
+      //   }
 
-        start = limit;
-        limit = limit + step;
-      };
+      //   start = limit;
+      //   limit = limit + step;
+      // };
 
-      buttonElementPrev.onclick = function () {
-        contentElement.innerHTML = "";
-        start -= step;
-        limit = start + step;
-        if (start < 0) {
-          start = arr.length;
-        }
-        for (let i = start; i < limit; i++) {
-          if (i < arr.length) {
-            let li = document.createElement("li");
-            li.innerHTML = i + ". " + arr[i].name;
-            contentElement.appendChild(li);
-          }
-        }
-      };
+      // buttonElementPrev.onclick = function () {
+      //   contentElement.innerHTML = "";
+      //   start -= step;
+      //   limit = start + step;
+      //   if (start < 0) {
+      //     start = arr.length;
+      //   }
+      //   for (let i = start; i < limit; i++) {
+      //     if (i < arr.length) {
+      //       let li = document.createElement("li");
+      //       li.innerHTML = i + ". " + arr[i].name;
+      //       contentElement.appendChild(li);
+      //     }
+      //   }
+      // };
+
+      // function x(domElement, eventType) {
+      //   domElement.addEventListener(eventType, function () {
+      //     contentElement.innerHTML = "";
+      //     for (let i = start; i < limit; i++) {
+      //       if (i < arr.length) {
+      //         console.log(arr[i]);
+      //         let li = document.createElement("li");
+      //         li.innerHTML = `${arr[i].name}`;
+      //         contentElement.appendChild(li);
+      //       }
+      //     }
+      //     start = limit;
+      //     limit = limit + step;
+      //   });
+      // }
+
+      // x(buttonElement, "click");
+
+      // 5. - Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript,
+      // зробіть так, щоб при  натисканні на кнопку зникав елемент з id="text".
+      // const buttonElement = document.querySelector(".button");
+      // const divElement = document.querySelector("#text");
+
+      // buttonElement.addEventListener("click", () => {
+      //   divElement.remove();
+      // });
+
+      // function addListener(domElement, eventType, foo) {
+      //   domElement.addEventListener(eventType, foo);
+      // }
+
+      // 6. - створити інпут який приймає вік людини та кнопку яка підтверджує дію.
+      //При натисканні на кнопку// зчитати інформацію з інпуту та перевірити вік чи меньше
+      // він ніж 18, та повідомити про це користувача
+
+      // const buttonElement = document.querySelector(".button");
+      // const input = document.querySelector(".input");
+
+      // addListener(buttonElement, "click", () => {
+      //   input.value >= 18 ? alert("OK") : alert("No");
+      // });
+
+      // 7.*** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк,
+      // третій вмиіст ячеєк.
+      // При натисканні кнопки, вся ця інформація зчитується і формується табличка,
+      // з відповідним вмістом.
+
+      // function addListener(domElement, eventType, foo) {
+      //   domElement.addEventListener(eventType, foo);
+      // }
+
+      // const buttonElement = document.querySelector(".button");
+      // const rowsInputElement = document.querySelector(".rows");
+      // const cellsInputElement = document.querySelector(".cells");
+      // const textInputElement = document.querySelector(".input");
+
+      // function createTable(rows, cells, input) {
+      //   let table = document.createElement("table");
+      //   document.body.appendChild(table);
+      //   for (let i = 0; i < rows; i++) {
+      //     let row = document.createElement("tr");
+      //     table.appendChild(row);
+      //     for (let i = 0; i < cells; i++) {
+      //       let cell = document.createElement("td");
+      //       row.appendChild(cell);
+      //       cell.innerText = input;
+      //     }
+      //   }
+      // }
+
+      // addListener(buttonElement, "click", function () {
+      //   createTable(
+      //     rowsInputElement.value,
+      //     cellsInputElement.value,
+      //     textInputElement.value
+      //   );
+      // });
 
     </script>
   </body>
