@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <!-- 4-->
+    <style>
+      li {
+        list-style-type: none; /* Removes the default list-style (bullets or numbers) */
+      }
+    </style>
+    <button class="buttonPrev">Prev</button>
+
+    <button class="buttonNext">Next</button>
+    <ul class="content"></ul>
+    
+    <script>
+ 
+      // =========================
+      // 4. зробити масив на 100 об'єктів та дві кнопки prev next
+      // при завантажені сторінки з'являються перші 10 об'єктів.
+      // При натисканні next виводяться настпні 10 об'єктів
+      // При натисканні prev виводяться попередні 10 об'єктів
+      const arr = [
+        { name: "John" },
+        { name: "Alice" },
+        { name: "Michael" },
+        { name: "Emma" },
+        { name: "James" },
+        { name: "Olivia" },
+        { name: "William" },
+        { name: "Sophia" },
+        { name: "Alexander" },
+        { name: "Isabella" },
+        { name: "Matthew" },
+        { name: "Charlotte" },
+        { name: "Ethan" },
+        { name: "Amelia" },
+        { name: "Daniel" },
+        { name: "Mia" },
+        { name: "Benjamin" },
+        { name: "Ella" },
+        { name: "Jacob" },
+        { name: "Emily" },
+        { name: "Andrew" },
+        { name: "Ava" },
+        { name: "David" },
+        { name: "Abigail" },
+        { name: "Joseph" },
+        { name: "Sofia" },
+        { name: "Logan" },
+        { name: "Scarlett" },
+        { name: "James" },
+        { name: "Lily" },
+        { name: "Henry" },
+        { name: "Grace" },
+        { name: "Michael" },
+        { name: "Madison" },
+        { name: "Jackson" },
+        { name: "Avery" },
+        { name: "Lucas" },
+        { name: "Chloe" },
+        { name: "Matthew" },
+        { name: "Evelyn" },
+        { name: "Ryan" },
+        { name: "Ella" },
+        { name: "Jack" },
+        { name: "Harper" },
+        { name: "Luke" },
+        { name: "Samantha" },
+        { name: "Nicholas" },
+        { name: "Addison" },
+        { name: "Gabriel" },
+        { name: "Natalie" },
+        { name: "John" },
+        { name: "Victoria" },
+        { name: "Christopher" },
+        { name: "Zoey" },
+        { name: "Joshua" },
+        { name: "Lillian" },
+        { name: "Aiden" },
+        { name: "Hannah" },
+        { name: "Emma" },
+        { name: "Brooklyn" },
+        { name: "Nathan" },
+        { name: "Zoe" },
+        { name: "Carter" },
+        { name: "Penelope" },
+        { name: "Isaac" },
+        { name: "Aria" },
+        { name: "Anthony" },
+        { name: "Mila" },
+        { name: "Christian" },
+        { name: "Leah" },
+        { name: "Samuel" },
+        { name: "Stella" },
+        { name: "Dylan" },
+        { name: "Audrey" },
+        { name: "Jonathan" },
+        { name: "Claire" },
+        { name: "Christopher" },
+        { name: "Skylar" },
+        { name: "Joseph" },
+        { name: "Nora" },
+        { name: "Isaiah" },
+        { name: "Savannah" },
+        { name: "Thomas" },
+        { name: "Sarah" },
+        { name: "Liam" },
+        { name: "Elizabeth" },
+        { name: "Owen" },
+        { name: "Eleanor" },
+        { name: "Connor" },
+        { name: "Hazel" },
+        { name: "Brayden" },
+        { name: "Aurora" },
+        { name: "Julian" },
+        { name: "Luna" },
+        { name: "Emma" },
+        { name: "Brooklyn" },
+        { name: "Nathan" },
+        { name: "Zoe" },
+        { name: "Isaac" },
+        { name: "Aria" },
+        { name: "Anthony" },
+      ];
+      const contentElement = document.querySelector(".content");
+
+      const buttonElementPrev = document.querySelector(".buttonPrev");
+      const buttonElementNext = document.querySelector(".buttonNext");
+
+      document.body.onload = function () {
+        let namesHTML = "";
+        for (let i = 0; i <= 9 && i < arr.length; i++) {
+          namesHTML += i + ". " + arr[i].name + "<br>";
+        }
+        contentElement.innerHTML = namesHTML;
+      };
+
+      let start = 10;
+      let step = 10;
+      let limit = start + step;
+
+      buttonElementNext.onclick = function () {
+        contentElement.innerHTML = "";
+        if (limit > arr.length) {
+          start = 0;
+          limit = start + step;
+        }
+        for (let i = start; i < limit; i++) {
+          if (i <= arr.length) {
+            let li = document.createElement("li");
+            li.innerHTML = i + ". " + arr[i].name;
+            contentElement.appendChild(li);
+          }
+        }
+
+        start = limit;
+        limit = limit + step;
+      };
+
+      buttonElementPrev.onclick = function () {
+        contentElement.innerHTML = "";
+        start -= step;
+        limit = start + step;
+        if (start < 0) {
+          start = arr.length;
+        }
+        for (let i = start; i < limit; i++) {
+          if (i < arr.length) {
+            let li = document.createElement("li");
+            li.innerHTML = i + ". " + arr[i].name;
+            contentElement.appendChild(li);
+          }
+        }
+      };
+
+    </script>
+  </body>
+</html>
